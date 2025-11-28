@@ -1,0 +1,68 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Detalles de {{ myaprendiz.nombre }} {{ myaprendiz.apellido }}
+{% endblock %}
+
+
+{% block content %}
+  <section class="aprendiz-details-section">
+    
+    
+
+    <div class="profile-card">
+      <div class="card-header">
+        <h1> {{ myaprendiz.nombre }} {{ myaprendiz.apellido }}</h1>
+        
+        <p class="status">Miembro activo</p>
+      </div>
+
+      <div class="card-body">
+        
+        <h3>Información de Contacto y Afiliación</h3>
+        
+        <div class="detail-grid">
+          <div class="detail-item">
+            <span class="label"> Documento de Identidad:</span>
+            <span class="value">{{ myaprendiz.documento_identidad }}</span>
+          </div>
+          
+          <div class="detail-item">
+            <span class="label">📞 Teléfono:</span>
+            <span class="value">{{ myaprendiz.telefono }}</span>
+          </div>
+          
+          <div class="detail-item">
+            <span class="label">📧 Email:</span>
+            <span class="value">{{ myaprendiz.correo }}</span>
+          </div>
+          
+          <div class="detail-item">
+            <span class="label">📍 Ciudad:</span>
+            <span class="value">{{ myaprendiz.ciudad }}</span>
+          </div>
+          
+         
+          <div class="detail-item">
+            <span class="label">📅 Fecha de Nacimiento:</span>
+            <span class="value">{{ myaprendiz.fecha_nacimiento|date:"F j, Y" }}</span>
+          </div>
+          
+          <div class="detail-item">
+            <span class="label"> Programa:</span>
+            <span class="value">{{ myaprendiz.programa }}</span>
+          </div>
+          
+          
+        </div>
+
+      </div>
+    </div>
+    
+  <br>
+    <p style="margin-top: 20px;">
+        <a href="/aprendices" class="btn">Volver a Miembros</a>
+    </p>
+
+  </section>
+{% endblock %}

@@ -1,0 +1,95 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Detalles de {{ myinstructor.nombre }} {{ myinstructor.apellido }}
+{% endblock %}
+
+{% block content %}
+<section class="instructor-details-section">
+
+  <div class="profile-card">
+    <div class="card-header">
+      <h1>{{ myinstructor.nombre }} {{ myinstructor.apellido }}</h1>
+      <p class="status">
+        {{ myinstructor.activo|yesno:"Miembro activo,Inactivo" }}
+      </p>
+    </div>
+
+    <div class="card-body">
+
+      <h3>Información del Instructor</h3>
+
+      <div class="detail-grid">
+
+        <div class="detail-item">
+          <span class="label">📄 Tipo de Documento:</span>
+          <span class="value">{{ myinstructor.get_tipo_documento_display }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🔑 Documento de Identidad:</span>
+          <span class="value">{{ myinstructor.documento_identidad }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📞 Teléfono:</span>
+          <span class="value">{{ myinstructor.telefono}}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📧 Email:</span>
+          <span class="value">{{ myinstructor.correo}}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📍 Ciudad:</span>
+          <span class="value">{{ myinstructor.ciudad }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🏠 Dirección:</span>
+          <span class="value">{{ myinstructor.direccion }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🎓 Nivel Educativo:</span>
+          <span class="value">{{ myinstructor.get_nivel_educativo_display }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">💼 Especialidad:</span>
+          <span class="value">{{ myinstructor.especialidad }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📊 Años de Experiencia:</span>
+          <span class="value">{{ myinstructor.anos_experiencia }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📅 Fecha de Nacimiento:</span>
+          <span class="value">{{ myinstructor.fecha_nacimiento|date:"F j, Y" }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📅 Fecha de Vinculación:</span>
+          <span class="value">{{ myinstructor.fecha_vinculacion|date:"F j, Y" }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🕒 Fecha de Registro:</span>
+          <span class="value">{{ myinstructor.fecha_registro|date:"F j, Y - h:i a" }}</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <p style="margin-top: 20px;">
+    <a href="/instructores" class="btn">Volver a Miembros</a>
+  </p>
+
+</section>
+{% endblock %}
