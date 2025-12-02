@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>{% block title %}{% endblock %}</title>
-    {% load static %}
-  {% load bootstrap5 %}
-
-  <link rel="stylesheet" href="{% static 'myglobal.css' %}">
-  {% bootstrap_css %}
-  {% bootstrap_javascript %}
-  <style>
-    body {
+body {
     background-color: #ffffff;
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     color: #1b1b1b;
@@ -113,58 +102,3 @@ footer {
     background-color: #0f7d42;
     color: white;
 }
-/* ======== FOOTER ======== */
-footer {
-    background-color: #0f7d42;          /* Verde SENA */
-    color: white;
-    padding: 20px 10px;
-    text-align: center;
-    margin-top: 40px;
-    border-top: 4px solid #0a5a2f;      /* Verde más oscuro */
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-footer a {
-    color: #c8ffd7;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-footer a:hover {
-    color: white;
-    text-decoration: underline;
-}
-  </style>
-  <!-- Llamar tu archivo CSS -->
-  
-
-</head>
-
-<body>
-
-<nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
-  <a class="navbar-brand" href="/">SENA</a>
-  <a class="navbar-brand" href="/aprendices">Aprendices</a>
-  <a class="navbar-brand" href="/instructores">Instructores</a>
-  <a class="navbar-brand" href="/programas">Programas</a>
-
-  <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" href="/admin">Admin</a>
-    </li>
-      </ul>
-    </li>
-  </ul>
-</nav>
-
-  {% block content %}
-   <h1>hola</h1>
-  {% endblock %}
-  <footer>
-    © 2025 SENA - Sistema de Gestión | Desarrollado por Carlos Medina
-  </footer>
-</div>
-</body>
-</html>

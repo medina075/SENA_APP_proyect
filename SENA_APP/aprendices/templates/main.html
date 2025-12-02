@@ -1,7 +1,35 @@
 {% extends 'master.html' %}
-
+{% load static %}
 {% block title %} SENA_APP {% endblock %}
-{% block content %}
-<center><h1>Bienvenido a SENA_APP</h1></center>
-<p>Bienvenido a SENA_APP, una aplicación web para el manejo de la información de aprendices.</p>
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>SENA_APP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="{% static 'mystyles.css' %}">
+  </head>
+  {% block content %}
+  <body>
+    
+            <center><h1>Bienvenido a SENA_APP</h1></center>
+        <div class="card">
+         <img src="{% static 'aprendices/SENA_APP.jpg' %}" alt="SENA">
+          <div class="card-body">
+            <center><h5 class="card-title">SENA APP</h5>
+            <p class="card-text">Bienvenido a SENA_APP, una aplicación web para el manejo de la información de aprendices.</p></center>
+            <center><a href="/aprendices" class="btn btn-primary">Ver Aprendices</a>
+            <a href="/instructores" class="btn btn-primary">Ver Instructrores</a>
+            <a href="/programas" class="btn btn-primary">Ver Programas</a>
+            </center>
+          </div>
+        </div>
+  </body>
+</html>
 {% endblock %}

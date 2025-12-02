@@ -1,0 +1,100 @@
+{% extends "master.html" %}
+
+{% block title %}
+  Detalles del Programa {{ myprograma.nombre }}
+{% endblock %}
+
+{% block content %}
+<section class="instructor-details-section">
+
+  <div class="profile-card">
+    <div class="card-header">
+      <h1>{{ myprograma.nombre }}</h1>
+      <p class="status">
+        Estado: {{ myprograma.estado }}
+      </p>
+    </div>
+
+    <div class="card-body">
+
+      <h3>Información del Programa</h3>
+
+      <div class="detail-grid">
+
+        <div class="detail-item">
+          <span class="label">📌 Código del Programa:</span>
+          <span class="value">{{ myprograma.codigo }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🎓 Nivel de Formación:</span>
+          <span class="value">{{ myprograma.get_nivel_formacion_display }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📚 Modalidad:</span>
+          <span class="value">{{ myprograma.get_modalidad_display }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">⏳ Duración en Meses:</span>
+          <span class="value">{{ myprograma.duracion_meses }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">⏱️ Duración en Horas:</span>
+          <span class="value">{{ myprograma.duracion_horas }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📝 Descripción del Programa:</span>
+          <span class="value">{{ myprograma.descripcion }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">💡 Competencias a Desarrollar:</span>
+          <span class="value">{{ myprograma.competencias }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🎓 Perfil de Egreso:</span>
+          <span class="value">{{ myprograma.perfil_egreso }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📥 Requisitos de Ingreso:</span>
+          <span class="value">{{ myprograma.requisitos_ingreso }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🏫 Centro de Formación:</span>
+          <span class="value">{{ myprograma.centro_formacion }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🌎 Regional:</span>
+          <span class="value">{{ myprograma.regional }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">📅 Fecha de Creación:</span>
+          <span class="value">{{ myprograma.fecha_creacion|date:"F j, Y" }}</span>
+        </div>
+
+        <div class="detail-item">
+          <span class="label">🕒 Fecha de Registro:</span>
+          <span class="value">{{ myprograma.fecha_registro|date:"F j, Y - h:i a" }}</span>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+  <br>
+  <p style="margin-top: 20px;">
+    <a href="/programas" class="btn">Volver a Programas</a>
+  </p>
+
+</section>
+{% endblock %}

@@ -1,0 +1,114 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Sena - Lista de Programas de Formación
+{% endblock %}
+
+{% block content %}
+
+<div class="accordion accordion-flush" id="accordionExample">
+<center><h1>Lista de Programas de Formación</h1></center>
+
+{% for x in myprogramas %}
+  <div class="accordion-item">
+
+    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+      <button class="accordion-button collapsed"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse{{ forloop.counter }}"
+              aria-expanded="false"
+              aria-controls="collapse{{ forloop.counter }}">
+          Programa: {{ x.nombre }} ({{ x.codigo }})
+      </button>
+    </h2>
+
+    <div id="collapse{{ forloop.counter }}"
+         class="accordion-collapse collapse"
+         aria-labelledby="heading{{ forloop.counter }}"
+         data-bs-parent="#accordionExample">
+
+      <div class="accordion-body">
+
+        <div class="detail-grid">
+
+          <div class="detail-item">
+            <span class="label">Código del Programa:</span>
+            <span class="value">{{ x.codigo }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Nivel de Formación:</span>
+            <span class="value">{{ x.nivel_formacion }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Modalidad:</span>
+            <span class="value">{{ x.modalidad }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Duración en Meses:</span>
+            <span class="value">{{ x.duracion_meses }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Duración en Horas:</span>
+            <span class="value">{{ x.duracion_horas }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Descripción del Programa:</span>
+            <span class="value">{{ x.descripcion }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Competencias a Desarrollar:</span>
+            <span class="value">{{ x.competencias }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Perfil de Egreso:</span>
+            <span class="value">{{ x.perfil_egreso }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Requisitos de Ingreso:</span>
+            <span class="value">{{ x.requisitos_ingreso }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Centro de Formación:</span>
+            <span class="value">{{ x.centro_formacion }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Regional:</span>
+            <span class="value">{{ x.regional }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Fecha de Creación:</span>
+            <span class="value">{{ x.fecha_creacion|date:"F j, Y" }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Fecha de Registro:</span>
+            <span class="value">{{ x.fecha_registro|date:"F j, Y - h:i a" }}</span>
+          </div>
+
+          <div class="detail-item">
+            <span class="label">Estado:</span>
+            <span class="value">{{ x.estado }}</span>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+
+{% endblock %}
