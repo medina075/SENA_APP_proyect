@@ -44,10 +44,5 @@ class Programa(models.Model):
         verbose_name_plural = "Programas de Formación"
         ordering = ['nombre']
 
-    def _str_(self):
+    def __str__(self):
         return f"{self.nombre} ({self.codigo})"
-
-    # Aquí se corta la imagen, pero probablemente siguen los campos
-    # usando las opciones de arriba.
-
-# Create your models here.
