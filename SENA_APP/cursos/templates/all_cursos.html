@@ -1,0 +1,104 @@
+{% extends "master.html" %}
+
+{% block title %}
+  My Sena - Lista de Cursos
+{% endblock %}
+
+{% block content %}
+
+<div class="accordion accordion-flush mt-4" id="accordionCursos">
+
+  <center>
+      <h1 class="mb-4">Lista de Cursos</h1>
+  </center>
+
+  {% for curso in mycursos %}
+  <div class="accordion-item">
+
+    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+      <button class="accordion-button collapsed d-flex justify-content-between"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#collapse{{ forloop.counter }}"
+              aria-expanded="false"
+              aria-controls="collapse{{ forloop.counter }}">
+
+          <div>
+            <strong>{{ curso.codigo }}</strong> - {{ curso.nombre }}
+          </div>
+
+          <span class="badge 
+            {% if curso.estado == 'PRO' %} bg-info text-dark
+            {% elif curso.estado == 'INI' %} bg-primary
+            {% elif curso.estado == 'EJE' %} bg-warning text-dark
+            {% elif curso.estado == 'FIN' %} bg-success
+            {% elif curso.estado == 'CAN' %} bg-danger
+            {% elif curso.estado == 'SUS' %} bg-secondary
+            {% endif %}">
+            {{ curso.get_estado_display }}
+          </span>
+      </button>
+    </h2>
+
+    <div id="collapse{{ forloop.counter }}"
+         class="accordion-collapse collapse"
+         aria-labelledby="heading{{ forloop.counter }}"
+         data-bs-parent="#accordionCursos">
+
+      <div class="accordion-body">
+
+        <div class="row">
+          
+          <div class="col-md-6">
+            <p><b>📘 Programa:</b> {{ curso.programa.nombre }}</p>
+            <p><b>👨‍🏫 Coordinador:</b> {{ curso.instructor_coordinador.nombre }} {{ curso.instructor_coordinador.apellido }}</p>
+            <p><b>📆 Inicio:</b> {{ curso.fecha_inicio|date:"F j, Y" }}</p>
+            <p><b>📆 Fin:</b> {{ curso.fecha_fin|date:"F j, Y" }}</p>
+            <p><b>🕒 Horario:</b> {{ curso.horario }}</p>
+            <p><b>🏫 Aula:</b> {{ curso.aula }}</p>
+          </div>
+
+          <div class="col-md-6">
+            <p><b>👥 Cupos Máximos:</b> {{ curso.cupos_maximos }}</p>
+            <p><b>🟢 Disponibles:</b> {{ curso.cupos_disponibles }}</p>
+            <p>
+              <b>% Ocupación:</b>
+              <span class="{% if curso.porcentaje_ocupacion >= 80 %}text-danger{% else %}text-success{% endif %}">
+                {{ curso.porcentaje_ocupacion|floatformat:1 }} %
+              </span>
+            </p>
+            <p><b>📝 Observaciones:</b> {{ curso.observaciones|default:"N/A" }}</p>
+            <p><b>⏳ Registrado:</b> {{ curso.fecha_registro|date:"F j, Y - h:i a" }}</p>
+          </div>
+
+        </div>
+
+        <hr>
+
+        <h5>👨‍🏫 Instructores del Curso:</h5>
+        <ul>
+          {% for inst in curso.instructores.all %}
+            <li>{{ inst.nombre }} {{ inst.apellido }}</li>
+          {% empty %}
+            <li>No hay instructores asignados.</li>
+          {% endfor %}
+        </ul>
+
+        <h5>👨‍🎓 Aprendices Inscritos:</h5>
+        <ul>
+          {% for apr in curso.aprendices.all %}
+            <li>{{ apr.nombre }} {{ apr.apellido }}</li>
+          {% empty %}
+            <li>No hay aprendices inscritos.</li>
+          {% endfor %}
+        </ul>
+
+      </div>
+    </div>
+  </div>
+  {% empty %}
+    <center><h3>No hay cursos registrados</h3></center>
+  {% endfor %}
+</div>
+
+{% endblock %}
