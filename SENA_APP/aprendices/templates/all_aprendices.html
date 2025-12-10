@@ -39,6 +39,9 @@
                 <div class="detail-item"><span class="label">📍 Ciudad:</span> <span class="value">{{ x.ciudad }}</span></div>
                 <div class="detail-item"><span class="label">📅 Nacimiento:</span> <span class="value">{{ x.fecha_nacimiento|date:"F j, Y" }}</span></div>
                 <div class="detail-item"><span class="label">Programa:</span> <span class="value">{{ x.programa }}</span></div>
+                <div class="detail-item"><span class="label">Programa:</span> <span class="value">{{ x.programa }}</span></div>
+                <a href="editar/{{x.id}}" class="btn btn-sm btn-success">Editar</a>
+                <a href="eliminar/{{x.id}}" class="btn btn-sm btn-success">Eliminar</a>
 
             </div>
           </div>
@@ -47,5 +50,5 @@
 {% endfor %}
 
 </div>
-<a href="/aprendices/crear" class="btn btn-primary">Crear aprendiz</a>
+<center><a href="/aprendices/crear" class="btn btn-sm btn-success">Crear aprendiz</a></center>
 {% endblock %}

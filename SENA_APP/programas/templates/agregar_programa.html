@@ -1,7 +1,7 @@
 {% extends "master.html" %}
-{% block title %}Agregar Aprendiz{% endblock %}
+{% block title %}Agregar programa{% endblock %}
 {% block content %}
-    <h2>agregar aprendiz</h2>
+    <h2>agregar programa</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
